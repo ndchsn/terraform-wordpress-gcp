@@ -17,23 +17,28 @@ Sebelum memulai, pastikan Anda sudah menginstal:
 
 1. **Terraform** (versi >= 1.0)
 
-   Download dari https://www.terraform.io/downloads.html
-   Atau gunakan package manager
+   Download dari https://www.terraform.io/downloads.html.
+   Atau gunakan package manager.
    
 
 2. **Google Cloud SDK (gcloud CLI)**
 
-   Download dari https://cloud.google.com/sdk/docs/install
+   Download dari https://cloud.google.com/sdk/docs/install.
    
 
 3. **Git**
 
-   Untuk clone repository
+   Untuk clone repository.
    
 
 ### Konfigurasi Awal
 
-#### 1. Setup Google Cloud
+#### 1. Setup Google Cloud 
+
+- **Menggunakan Cloud Shell**
+
+   Masuk ke https://console.cloud.google.com kemudian buka cloud shell (Terletak di pojok kanan atas dengan logo terminal).
+
 ```bash
 # Login ke Google Cloud
 gcloud auth login
@@ -106,6 +111,8 @@ Deployment akan memakan waktu sekitar 5-10 menit. Terraform akan:
 - Membuat VPC dan subnet
 - Membuat firewall rules
 - Membuat VM dengan Ubuntu 22.04
+
+Instalasi akan memakan waktu sekitar 10-20 menit tambahan setelah deployment VM selesai. Startup Script akan:
 - Menginstal Docker dan Docker Compose secara otomatis
 - Menjalankan WordPress dan MySQL
 
@@ -127,6 +134,19 @@ http://VM_EXTERNAL_IP:8080
 ```
 
 #### 3. SSH ke VM (Opsional)
+
+- **Lewat Console Cloud Google**
+
+   Masuk ke https://console.cloud.google.com/compute/instances atau di halaman navigasi sebelah kiri console GCP, masuk ke Compute Engine > VM Instances.
+
+- **SSH lewat cloud shell**
+
+```bash
+gcloud compute ssh <nama-vm>@VM_External_IP
+```
+
+- **SSH lewat terminal Cloud SDK**
+
 ```bash
 ssh ubuntu@VM_EXTERNAL_IP
 ```
@@ -179,24 +199,22 @@ terraform-wordpress-gcp/
 ```
 
 ## Security Notes
-- Change default passwords in production
-- Use strong passwords for database
-- Consider using Google Secret Manager for sensitive data
-- Regularly update Docker images
-- Monitor access logs
+- Ganti password default di environment Production
+- Gunakan password yang kuat untuk database
+- Pertimbangkan untuk menggunakan Google Secret Manager untuk data sensitif
+- Update Docker Image secara berkala
+- Monitoring log akses
 
 ## Cost Estimation
-- e2-micro instance: Free tier eligible (if within limits)
+- e2-micro instance: Free tier eligible
 - Network egress: Minimal cost for basic usage
 - Storage: ~$0.04/GB/month for standard persistent disk
 
 ## Support
-If you encounter any issues, please check:
+Jika menemukan masalah yang lain, bisa cek:
 1. GCP quotas and limits
 2. Billing account status
 3. API enablement status
 4. Network connectivity
 
 ---
-
-**Made with ❤️ for Technical Assessment**
