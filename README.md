@@ -1,10 +1,6 @@
 # WordPress Deployment on Google Cloud Platform
 
-[🇮🇩 Bahasa Indonesia](#bahasa-indonesia) | [🇺🇸 English](#english)
-
 ---
-
-## Bahasa Indonesia
 
 ### Objective
 Proyek ini menggunakan Terraform untuk membuat infrastruktur di Google Cloud Platform (GCP) dan Docker Compose untuk menjalankan aplikasi WordPress dengan database MySQL. Semua proses instalasi Docker dan deployment aplikasi dilakukan secara otomatis saat VM pertama kali dinyalakan.
@@ -20,26 +16,20 @@ Proyek ini menggunakan Terraform untuk membuat infrastruktur di Google Cloud Pla
 Sebelum memulai, pastikan Anda sudah menginstal:
 
 1. **Terraform** (versi >= 1.0)
-   ```bash
-   # Download dari https://www.terraform.io/downloads.html
-   # Atau gunakan package manager
-   ```
+
+   Download dari https://www.terraform.io/downloads.html
+   Atau gunakan package manager
+   
 
 2. **Google Cloud SDK (gcloud CLI)**
-   ```bash
-   # Download dari https://cloud.google.com/sdk/docs/install
-   ```
+
+   Download dari https://cloud.google.com/sdk/docs/install
+   
 
 3. **Git**
-   ```bash
-   # Untuk clone repository
-   ```
 
-4. **SSH Key Pair**
-   ```bash
-   # Buat SSH key jika belum ada
-   ssh-keygen -t rsa -b 4096 -C "your-email@example.com"
-   ```
+   Untuk clone repository
+   
 
 ### Konfigurasi Awal
 
