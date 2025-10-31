@@ -1,7 +1,7 @@
 # GCP Configuration
 project_id = "your-gcp-project-id"
-region     = "us-central1"
-zone       = "us-central1-a"
+region     = "asia-southeast2"
+zone       = "asia-southeast2-a"
 
 # SSH Configuration
 ssh_user             = "ubuntu"

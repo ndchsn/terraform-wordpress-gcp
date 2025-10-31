@@ -79,8 +79,8 @@ nano terraform.tfvars
 Isi file `terraform.tfvars` dengan informasi Anda:
 ```hcl
 project_id = "your-actual-project-id"
-region     = "us-central1"
-zone       = "us-central1-a"
+region     = "asia-southeast2"
+zone       = "asia-southeast2-a"
 
 ssh_user             = "ubuntu"
 ssh_public_key_path  = "~/.ssh/id_rsa.pub"
@@ -248,8 +248,8 @@ nano terraform.tfvars
 Fill the `terraform.tfvars` file with your information:
 ```hcl
 project_id = "your-actual-project-id"
-region     = "us-central1"
-zone       = "us-central1-a"
+region     = "asia-southeast2"
+zone       = "asia-southeast2-a"
 
 ssh_user             = "ubuntu"
 ssh_public_key_path  = "~/.ssh/id_rsa.pub"

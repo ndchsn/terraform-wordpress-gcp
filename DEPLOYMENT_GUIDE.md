@@ -128,7 +128,7 @@ gcloud services enable cloudresourcemanager.googleapis.com
 ## Cost Optimization
 
 1. **Use e2-micro** (free tier eligible)
-2. **Stop VM** when not needed: `gcloud compute instances stop wordpress-vm --zone=us-central1-a`
+2. **Stop VM** when not needed: `gcloud compute instances stop wordpress-vm --zone=asia-southeast2-a`
 3. **Delete unused resources** regularly
 4. **Monitor billing** alerts
 
