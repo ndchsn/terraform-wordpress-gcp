@@ -141,13 +141,15 @@ http://VM_EXTERNAL_IP:8080
 - **SSH lewat cloud shell**
 
 ```bash
-gcloud compute ssh --project ${var.project_id} --zone ${var.zone} ${google_compute_instance.wordpress_vm.name}
+terraform output ssh_command
+gcloud compute ssh --project <PROJECT_ID> --zone <ZONE> wordpress-vm
 ```
 
 - **SSH lewat terminal Cloud SDK**
 
 ```bash
-gcloud compute ssh --project ${var.project_id} --zone ${var.zone} ${google_compute_instance.wordpress_vm.name}
+terraform output ssh_command
+gcloud compute ssh --project <PROJECT_ID> --zone <ZONE> wordpress-vm
 ```
 
 Cek status container:
@@ -156,7 +158,27 @@ sudo docker ps
 sudo docker-compose -f /home/wordpress-app/docker-compose.yml logs
 ```
 
-#### 4. 
+#### 4. Verifikasi Volume Service Database
+
+# Cek Konfigurasi Volume di Docker
+```bash
+cd /home/wordpress-app
+sudo docker inspect wordpress_db #Verifikasi volume db
+```
+
+# Uji Persistent Data
+```bash
+sudo docker-compose down #Hentikan dan Hapus Kontainer
+sudo docker-compose up -d #Jalankan kembali kontainer
+```
+
+#### 5. Verifikasi Volume Service Wordpress
+
+```bash
+sudo docker logs wordpress_app #Verifikasi dependensi wordpress terhadap db
+sudo docker inspect wordpress_app #Verifikasi volume wordpress
+```
+
 
 ### Troubleshooting
 
@@ -164,7 +186,7 @@ sudo docker-compose -f /home/wordpress-app/docker-compose.yml logs
 1. Tunggu beberapa menit (startup script masih berjalan)
 2. Cek log startup script:
    ```bash
-   ssh ubuntu@VM_EXTERNAL_IP
+   gcloud compute ssh --project <PROJECT_ID> --zone <ZONE> wordpress-vm
    sudo tail -f /var/log/startup-script.log
    ```
 
