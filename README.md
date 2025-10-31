@@ -117,7 +117,7 @@ Instalasi akan memakan waktu sekitar 10-20 menit tambahan setelah deployment VM 
 
 ### Verification:
 
-#### 1. Cek Output Terraform
+### 1. Cek Output Terraform
 ```bash
 terraform output
 ```
@@ -126,13 +126,13 @@ Anda akan melihat informasi seperti:
 - URL WordPress
 - Command SSH
 
-#### 2. Akses WordPress
+### 2. Akses WordPress
 Buka browser dan kunjungi:
 ```
 http://VM_EXTERNAL_IP:8080
 ```
 
-#### 3. SSH ke VM 
+### 3. SSH ke VM 
 
 - **Lewat Console Cloud Google**
 
@@ -158,7 +158,7 @@ sudo docker ps
 sudo docker-compose -f /home/wordpress-app/docker-compose.yml logs
 ```
 
-#### 4. Verifikasi Volume Service Database
+### 4. Verifikasi Volume Service Database
 
 - **Cek Konfigurasi Volume di Docker**
 ```bash
@@ -172,7 +172,7 @@ sudo docker-compose down #Hentikan dan Hapus Kontainer
 sudo docker-compose up -d #Jalankan kembali kontainer
 ```
 
-#### 5. Verifikasi Volume Service Wordpress
+### 5. Verifikasi Volume Service Wordpress
 
 ```bash
 sudo docker logs wordpress_app #Verifikasi dependensi wordpress terhadap db
