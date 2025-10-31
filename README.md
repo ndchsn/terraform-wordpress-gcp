@@ -61,7 +61,7 @@ gcloud auth application-default login
 
 #### 2. Clone Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/terraform-wordpress-gcp.git
+git clone https://github.com/ndchsn/terraform-wordpress-gcp.git
 cd terraform-wordpress-gcp
 ```
 
@@ -230,7 +230,7 @@ gcloud auth application-default login
 
 #### 2. Clone Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/terraform-wordpress-gcp.git
+git clone https://github.com/ndchsn/terraform-wordpress-gcp.git
 cd terraform-wordpress-gcp
 ```
 
