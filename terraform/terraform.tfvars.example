@@ -1,0 +1,14 @@
+# GCP Configuration
+project_id = "your-gcp-project-id"
+region     = "us-central1"
+zone       = "us-central1-a"
+
+# SSH Configuration
+ssh_user             = "ubuntu"
+ssh_public_key_path  = "~/.ssh/id_rsa.pub"
+
+# Database Configuration
+mysql_root_password = "your-secure-root-password"
+mysql_database      = "wordpress"
+mysql_user          = "wpuser"
+mysql_password      = "your-secure-wp-password"
