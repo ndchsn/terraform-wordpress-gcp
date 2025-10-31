@@ -5,7 +5,7 @@
 ### 1. Persiapan Awal
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/terraform-wordpress-gcp.git
+git clone https://github.com/ndchsn/terraform-wordpress-gcp.git
 cd terraform-wordpress-gcp
 
 # Setup GCP
@@ -52,7 +52,7 @@ chmod +x ../destroy.sh
 ### 1. Initial Setup
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/terraform-wordpress-gcp.git
+git clone https://github.com/ndchsn/terraform-wordpress-gcp.git
 cd terraform-wordpress-gcp
 
 # Setup GCP
