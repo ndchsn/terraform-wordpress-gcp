@@ -185,7 +185,7 @@ terraform-wordpress-gcp/
 │   ├── docker-compose.yml      # Docker Compose configuration
 │   └── .env.example            # Environment variables example
 ├── .gitignore                  # Git ignore rules
-└── README.md                   # This file
+└── README.md                   # Guidance
 ```
 
 ## Security Notes

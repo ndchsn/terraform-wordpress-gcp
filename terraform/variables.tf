@@ -15,18 +15,6 @@ variable "zone" {
   default     = "asia-southeast2-a"
 }
 
-variable "ssh_user" {
-  description = "SSH username for the VM"
-  type        = string
-  default     = "ubuntu"
-}
-
-variable "ssh_public_key_path" {
-  description = "Path to the SSH public key file"
-  type        = string
-  default     = "~/.ssh/id_rsa.pub"
-}
-
 variable "mysql_root_password" {
   description = "MySQL root password"
   type        = string

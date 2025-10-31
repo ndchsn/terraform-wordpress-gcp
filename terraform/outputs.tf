@@ -30,5 +30,5 @@ output "wordpress_url" {
 
 output "ssh_command" {
   description = "SSH command to connect to the VM"
-  value       = "ssh ${var.ssh_user}@${google_compute_instance.wordpress_vm.network_interface[0].access_config[0].nat_ip}"
+  value       = "gcloud compute ssh --project ${var.project_id} --zone ${var.zone} ${google_compute_instance.wordpress_vm.name}"
 }

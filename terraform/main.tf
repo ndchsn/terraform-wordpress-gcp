@@ -154,10 +154,6 @@ resource "google_compute_instance" "wordpress_vm" {
     }
   }
 
-  metadata = {
-    ssh-keys = "${var.ssh_user}:${file(var.ssh_public_key_path)}"
-  }
-
   metadata_startup_script = local.startup_script
 
   service_account {
