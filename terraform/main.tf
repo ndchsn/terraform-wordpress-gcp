@@ -1,4 +1,4 @@
-# Configure the Google Cloud Provider
+# Provider
 terraform {
   required_version = ">= 1.0"
   required_providers {
@@ -15,14 +15,14 @@ provider "google" {
   zone    = var.zone
 }
 
-# Create VPC
+# VPC Networks
 resource "google_compute_network" "wordpress_vpc" {
   name                    = "wordpress-vpc"
   auto_create_subnetworks = false
   description             = "VPC for WordPress deployment"
 }
 
-# Create public subnet
+# Subnet VPC
 resource "google_compute_subnetwork" "wordpress_subnet" {
   name          = "wordpress-subnet"
   ip_cidr_range = "10.0.1.0/24"
@@ -31,7 +31,7 @@ resource "google_compute_subnetwork" "wordpress_subnet" {
   description   = "Public subnet for WordPress VM"
 }
 
-# Create firewall rules
+# Firewall Rules
 resource "google_compute_firewall" "wordpress_firewall" {
   name    = "wordpress-firewall"
   network = google_compute_network.wordpress_vpc.name
@@ -47,7 +47,7 @@ resource "google_compute_firewall" "wordpress_firewall" {
   description = "Allow SSH and WordPress access"
 }
 
-# Create startup script for Docker installation
+# Startup Script
 locals {
   startup_script = <<-EOF
     #!/bin/bash
@@ -124,15 +124,13 @@ networks:
     driver: bridge
 COMPOSE_EOF
     
-    # Start the application
     docker-compose up -d
     
-    # Log completion
     echo "WordPress deployment completed at $(date)" >> /var/log/startup-script.log
   EOF
 }
 
-# Create Compute Engine instance
+# VM Instance 
 resource "google_compute_instance" "wordpress_vm" {
   name         = "wordpress-vm"
   machine_type = "e2-micro"
@@ -152,7 +150,7 @@ resource "google_compute_instance" "wordpress_vm" {
     subnetwork = google_compute_subnetwork.wordpress_subnet.id
     
     access_config {
-      # Ephemeral public IP
+      
     }
   }
 
