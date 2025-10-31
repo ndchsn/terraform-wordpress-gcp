@@ -160,13 +160,13 @@ sudo docker-compose -f /home/wordpress-app/docker-compose.yml logs
 
 #### 4. Verifikasi Volume Service Database
 
-# Cek Konfigurasi Volume di Docker
+- **Cek Konfigurasi Volume di Docker**
 ```bash
 cd /home/wordpress-app
 sudo docker inspect wordpress_db #Verifikasi volume db
 ```
 
-# Uji Persistent Data
+- **Uji Persistent Data**
 ```bash
 sudo docker-compose down #Hentikan dan Hapus Kontainer
 sudo docker-compose up -d #Jalankan kembali kontainer
