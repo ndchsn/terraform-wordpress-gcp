@@ -39,6 +39,10 @@ Sebelum memulai, pastikan Anda sudah menginstal:
 
    Masuk ke https://console.cloud.google.com kemudian buka cloud shell (Terletak di pojok kanan atas dengan logo terminal).
 
+- **Atau menggunakan Cloud SDK**
+
+   Buka Cloud SDK Terminal yang sudah diinstall.
+
 ```bash
 # Login ke Google Cloud
 gcloud auth login
@@ -50,8 +54,6 @@ gcloud config set project YOUR_PROJECT_ID
 gcloud services enable compute.googleapis.com
 gcloud services enable cloudresourcemanager.googleapis.com
 
-# Setup Application Default Credentials
-gcloud auth application-default login
 ```
 
 #### 2. Clone Repository
@@ -67,7 +69,7 @@ cd terraform
 # Copy file konfigurasi
 cp terraform.tfvars.example terraform.tfvars
 
-# Edit file terraform.tfvars dengan editor favorit Anda
+# Edit file terraform.tfvars dengan nano atau vim
 nano terraform.tfvars
 ```
 
@@ -76,9 +78,6 @@ Isi file `terraform.tfvars` dengan informasi Anda:
 project_id = "your-project-id"
 region     = "asia-southeast2"
 zone       = "asia-southeast2-a"
-
-ssh_user             = "ubuntu"
-ssh_public_key_path  = "~/.ssh/id_rsa.pub"
 
 mysql_root_password = "password-root-yang-aman"
 mysql_database      = "wordpress"
@@ -133,22 +132,22 @@ Buka browser dan kunjungi:
 http://VM_EXTERNAL_IP:8080
 ```
 
-#### 3. SSH ke VM (Opsional)
+#### 3. SSH ke VM 
 
 - **Lewat Console Cloud Google**
 
-   Masuk ke https://console.cloud.google.com/compute/instances atau di halaman navigasi sebelah kiri console GCP, masuk ke Compute Engine > VM Instances.
+   Masuk ke https://console.cloud.google.com/compute/instances atau di halaman navigasi sebelah kiri console GCP, masuk ke Compute Engine > VM Instances, Klik SSH di VM yang sudah dibuat.
 
 - **SSH lewat cloud shell**
 
 ```bash
-gcloud compute ssh <nama-vm>@VM_External_IP
+gcloud compute ssh --project ${var.project_id} --zone ${var.zone} ${google_compute_instance.wordpress_vm.name}
 ```
 
 - **SSH lewat terminal Cloud SDK**
 
 ```bash
-ssh ubuntu@VM_EXTERNAL_IP
+gcloud compute ssh --project ${var.project_id} --zone ${var.zone} ${google_compute_instance.wordpress_vm.name}
 ```
 
 Cek status container:
@@ -156,6 +155,8 @@ Cek status container:
 sudo docker ps
 sudo docker-compose -f /home/wordpress-app/docker-compose.yml logs
 ```
+
+#### 4. 
 
 ### Troubleshooting
 

@@ -25,7 +25,7 @@ resource "google_compute_network" "wordpress_vpc" {
 # Subnet VPC
 resource "google_compute_subnetwork" "wordpress_subnet" {
   name          = "wordpress-subnet"
-  ip_cidr_range = "10.0.1.0/24"
+  ip_cidr_range = "19.28.37.0/24" # isi IP Address sesuai requirement.
   region        = var.region
   network       = google_compute_network.wordpress_vpc.id
   description   = "Public subnet for WordPress VM"
